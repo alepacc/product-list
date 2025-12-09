@@ -6,13 +6,13 @@ import { useCart } from '../context/CartContext';
 function ProductList() {
   const products = Data();
 
-  const {setListCart} = useCart();
+  // const {setListCart} = useCart();
 
-  setListCart(() => products.map((item, index) => ({
-    id: index, 
-    name: item.category.toLowerCase().split(" ").join("-"), 
-    quantity: 0
-  })));
+  // setListCart(() => products.map((item, index) => ({
+  //   id: index, 
+  //   name: item.category.toLowerCase().split(" ").join("-"), 
+  //   quantity: 0
+  // })));
 
       // image: {
         //     thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
