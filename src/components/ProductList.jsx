@@ -1,6 +1,7 @@
 import Data from '../services/Data';
 import ProductCard from './ProductCard';
 import { useCart } from '../context/CartContext';
+import { useEffect } from 'react';
 
 
 function ProductList() {
@@ -8,11 +9,13 @@ function ProductList() {
 
   const {setListCart} = useCart();
 
-  setListCart(() => products.map((item, index) => ({
-    id: index, 
-    name: item.category.toLowerCase().split(" ").join("-"), 
-    quantity: 0
-  })));
+  useEffect(() => { // wrap logic with useEffect
+    setListCart(() => products.map((item, index) => ({
+      id: index, 
+      name: item.category.toLowerCase().split(" ").join("-"), 
+      quantity: 0
+    })));
+  }, [products, setListCart]); // add dependencies
 
       // image: {
         //     thumbnail: "./assets/images/image-waffle-thumbnail.jpg",

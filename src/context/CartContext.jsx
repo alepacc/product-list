@@ -11,9 +11,9 @@ export const CartProvider = ({ children }) => {
       const itemExists = prevListCart.find(item => item.name === productName);
       if (itemExists){
         return prevListCart.map((item) => {
-          item.name === productName
+          return item.name === productName
             ? { ...item, quantity: item.quantity + 1 }
-            : item;
+            : item
         });
       }
       return [...prevListCart, {name: productName, quantity: 1}];
@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider value={contexValue}>
-        {children}
+      {children}
     </CartContext.Provider>
   )
 
