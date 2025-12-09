@@ -8,7 +8,7 @@ function ProductCard({ name, category, price, image }) {
       <div className="product-card__header">
         <img src={image} alt={name} className="product-card__image" />
           
-        {/* <ButtonCart productName={categoryId} /> */}
+        <ButtonCart productName={categoryId} />
       </div>
       
       <p className="product-card__category">{category}</p>

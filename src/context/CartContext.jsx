@@ -8,21 +8,25 @@ export const CartProvider = ({ children }) => {
 
   const incrementCounter = (productName) => {
     setListCart((prevListCart) => {
-      return prevListCart.map((item) => {
-        item.name === productName
-          ? { ...item, quantity: item.quantity + 1 }
-          : item;
-      });
+      const itemExists = prevListCart.find(item => item.name === productName);
+      if (itemExists){
+        return prevListCart.map((item) => {
+          item.name === productName
+            ? { ...item, quantity: item.quantity + 1 }
+            : item;
+        });
+      }
+      return [...prevListCart, {name: productName, quantity: 1}];
     });
   };
 
   const decrementCounter = (productName) => {
     setListCart((prevListCart) => {
-      prevListCart.map((item) => {
+      return prevListCart.map((item) => 
         item.name === productName
           ? { ...item, quantity: item.quantity - 1 }
-          : item;
-      });
+          : item
+      ).filter(item => item.quantity > 0);
     });
   };
 
