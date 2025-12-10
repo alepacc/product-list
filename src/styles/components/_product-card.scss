@@ -17,6 +17,10 @@
   &__image {
     width: 100%;
     border-radius: v.$radius;
+
+    &.active{
+      outline: 3px solid var(--red);
+    }
   }
 
   &__category {
@@ -58,7 +62,7 @@
     border: 1px solid var(--red);
     gap: 30px;
 
-    .btn-quantity{
+    .btn-counter{
       border-radius: 50%;
       background: inherit;
       border: 1px solid white;

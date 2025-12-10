@@ -17,11 +17,11 @@ function ButtonCart({ productName }) {
           </button>
           ): (
           <div className="product-card__btn product-card__btn--added" disabled>
-            <button className="btn-quantity decrement" onClick={() => decrementCounter(productName)}>
+            <button className="btn-counter decrement" onClick={() => decrementCounter(productName)}>
               <img src="./assets/images/icon-decrement-quantity.svg" alt="Decrement icon"/>
             </button>
             <span>{quantity}</span>
-            <button className="btn-quantity" onClick={() => incrementCounter(productName)}>
+            <button className="btn-counter" onClick={() => incrementCounter(productName)}>
               <img src="./assets/images/icon-increment-quantity.svg" alt="Increment icon" />
             </button>
             
