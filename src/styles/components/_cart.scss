@@ -1,0 +1,9 @@
+@use "../abstracts/mixins" as m;
+
+.cart {
+    background-color: white;
+    border-radius: 12px;
+    padding: inherit;
+    @include m.flex-center;
+    flex-direction: column;
+}

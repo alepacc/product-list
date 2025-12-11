@@ -12,11 +12,11 @@ export const CartProvider = ({ children }) => {
       if (itemExists){
         return prevListCart.map((item) => {
           return item.name === productName
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + 1, name: item.name, price: item.price }
             : item
         });
       }
-      return [...prevListCart, {name: productName, quantity: 1}];
+      return [...prevListCart, {name: productName, quantity: 1, name: item.name, price: item.price }];
     });
   };
 
@@ -24,13 +24,30 @@ export const CartProvider = ({ children }) => {
     setListCart((prevListCart) => {
       return prevListCart.map((item) => 
         item.name === productName
-          ? { ...item, quantity: item.quantity - 1 }
+          ? { ...item, quantity: item.quantity - 1, name: item.name, price: item.price }
           : item
       ).filter(item => item.quantity > 0);
     });
   };
 
-  const contexValue = {listCart, setListCart, incrementCounter, decrementCounter};
+  const clearCart = () => {
+    setListCart([]);
+  };
+
+  const totalPrice = listCart.reduce((total, item) => {
+    return total + (item.price * item.quantity).toFixed(2);
+  }, 0);
+
+  /**
+   * Context value object for the shopping cart.
+   * @typedef {Object} CartContextValue
+   * @property {Array} listCart - Array of items currently in the cart
+   * @property {Function} setListCart - Function to update the entire cart list
+   * @property {Function} incrementCounter - Function to increase the quantity of an item in the cart
+   * @property {Function} decrementCounter - Function to decrease the quantity of an item in the cart
+   * @property {Function} clearCart - Function to remove all items from the cart
+   */
+  const contexValue = {listCart, setListCart, incrementCounter, decrementCounter, clearCart, totalPrice};
 
   return (
     <CartContext.Provider value={contexValue}>

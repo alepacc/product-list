@@ -11,14 +11,14 @@ function Cart() {
    
     return (
         <div className="cart">
-        <h2>Your Cart (<span className="total-title">...</span>)</h2>
+        <h2>Your Cart (<span className="total-title">tot</span>)</h2>
         {/* Cart items will be displayed here */}
         <div className="cart__items">
             
             {/* foreach element */}
-            {listCart.map(item => item.quantity > 0 &&
+            {listCart.map((item, index) => item.quantity > 0 &&
             <>
-                <div className="item" key={item.name}>
+                <div className="item" key={index}>
                     <h3 className="item__name">{item.name}</h3>
                     <p className="item__details">
                         <span className="item__quantity-number">
@@ -38,7 +38,7 @@ function Cart() {
         </div>
         <div className="cart__footer">
             <p className="cart__total">
-                Total: <span className="cart__total-price">totale</span>
+                Total: <span className="cart__total-price">${totalPrice}</span>
             </p>
             <button className="cart__clear-button" onClick={clearCart}>
                 Clear Cart
