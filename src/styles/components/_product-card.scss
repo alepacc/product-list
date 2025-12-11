@@ -57,9 +57,7 @@
   }
 
   &__btn--added{
-    background-color: var(--red);
-    color: white;
-    border: 1px solid var(--red);
+    @include m.red-btn;
     gap: 30px;
 
     .btn-counter{

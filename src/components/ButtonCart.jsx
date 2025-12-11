@@ -2,26 +2,26 @@ import { useState } from "react";
 import { useCart } from "../context/CartContext";
 
 
-function ButtonCart({ productName }) {
+function ButtonCart({ productName, product}) {
     const {listCart, incrementCounter, decrementCounter} = useCart();
-    const quantity = (listCart || []).find(item => item.name === productName)?.quantity || 0;
+    const quantity = (listCart || []).find(item => item.category === productName)?.quantity || 0;
     return (
         <>     
         {/* TODO: button quantity 
         TODO: add border img*/}
         { 
           quantity === 0 ? (
-          <button className="product-card__btn" onClick={() => incrementCounter(productName)}>
+          <button className="product-card__btn" onClick={() => incrementCounter(product)}>
             <img src="./assets/images/icon-add-to-cart.svg" alt="Add to cart icon" />
             Add to cart
           </button>
           ): (
           <div className="product-card__btn product-card__btn--added" disabled>
-            <button className="btn-counter decrement" onClick={() => decrementCounter(productName)}>
+            <button className="btn-counter decrement" onClick={() => decrementCounter(product)}>
               <img src="./assets/images/icon-decrement-quantity.svg" alt="Decrement icon"/>
             </button>
             <span>{quantity}</span>
-            <button className="btn-counter" onClick={() => incrementCounter(productName)}>
+            <button className="btn-counter" onClick={() => incrementCounter(product)}>
               <img src="./assets/images/icon-increment-quantity.svg" alt="Increment icon" />
             </button>
             

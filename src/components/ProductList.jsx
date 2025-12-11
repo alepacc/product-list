@@ -9,13 +9,16 @@ function ProductList() {
 
   const {setListCart} = useCart();
 
-  useEffect(() => { // wrap logic with useEffect
-    setListCart(() => products.map((item, index) => ({
-      id: index, 
-      name: item.category.toLowerCase().split(" ").join("-"), 
-      quantity: 0
-    })));
-  }, [products, setListCart]); // add dependencies
+  // useEffect(() => { // wrap logic with useEffect
+  //   setListCart(() => products.map((item, index) => ({
+  //     id: index, 
+  //     name: item.name,
+  //     category: item.category.toLowerCase().split(" ").join("-"), 
+  //     price: item.price,
+  //     image: item.image,
+  //     quantity: 0
+  //   })));
+  // }, [products, setListCart]); // add dependencies
 
       // image: {
         //     thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
@@ -28,6 +31,7 @@ function ProductList() {
       {products.map((item, index) => (
         <ProductCard  
           key={index}
+          product={item}
           name={item.name} 
           category={item.category} 
           price={item.price.toFixed(2)}

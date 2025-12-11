@@ -3,3 +3,11 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin red-btn{
+  background-color: var(--red);
+  color: white;
+  border: 1px solid var(--red);
+  padding: 0.6rem 1.6rem;
+  border-radius: 50px;
+}

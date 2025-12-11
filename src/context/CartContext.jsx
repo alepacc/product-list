@@ -6,37 +6,45 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [listCart, setListCart] = useState([]);
 
-  const incrementCounter = (productName) => {
+  const incrementCounter = (product) => { // productName is the categoryId
+    const productName = product.category.toLowerCase().split(" ").join("-");
+
     setListCart((prevListCart) => {
-      const itemExists = prevListCart.find(item => item.name === productName);
+      const itemExists = prevListCart.find(item => item.category === productName);
       if (itemExists){
         return prevListCart.map((item) => {
-          return item.name === productName
-            ? { ...item, quantity: item.quantity + 1, name: item.name, price: item.price }
+          return item.category === productName
+            ? { ...item, category: productName, name: product.name, price: product.price, quantity: item.quantity + 1  }
             : item
         });
       }
-      return [...prevListCart, {name: productName, quantity: 1, name: item.name, price: item.price }];
+      return [...prevListCart, {category: productName, name: product.name, price: product.price, quantity: 1}];
     });
   };
 
-  const decrementCounter = (productName) => {
+  const decrementCounter = (product) => {
+    const productName = product.category.toLowerCase().split(" ").join("-");
     setListCart((prevListCart) => {
       return prevListCart.map((item) => 
-        item.name === productName
-          ? { ...item, quantity: item.quantity - 1, name: item.name, price: item.price }
+        item.category === productName
+          ? { ...item, quantity: item.quantity - 1 }
           : item
       ).filter(item => item.quantity > 0);
     });
   };
 
-  const clearCart = () => {
-    setListCart([]);
+  const removeItem = (product) => {
+    const productName = product.category.toLowerCase().split(" ").join("-");
+    setListCart((prevListCart) => {
+      return prevListCart.filter(item => item.category !== productName);
+    });
   };
 
+
   const totalPrice = listCart.reduce((total, item) => {
-    return total + (item.price * item.quantity).toFixed(2);
-  }, 0);
+    return total + (item.price * item.quantity);
+  }, 0).toFixed(2);
+
 
   /**
    * Context value object for the shopping cart.
@@ -45,9 +53,10 @@ export const CartProvider = ({ children }) => {
    * @property {Function} setListCart - Function to update the entire cart list
    * @property {Function} incrementCounter - Function to increase the quantity of an item in the cart
    * @property {Function} decrementCounter - Function to decrease the quantity of an item in the cart
-   * @property {Function} clearCart - Function to remove all items from the cart
+   * @property {Function} removeItem - Function to remove item from the cart
+   * @property {number} totalPrice - Total price of all items in the cart
    */
-  const contexValue = {listCart, setListCart, incrementCounter, decrementCounter, clearCart, totalPrice};
+  const contexValue = {listCart, setListCart, incrementCounter, decrementCounter, removeItem, totalPrice};
 
   return (
     <CartContext.Provider value={contexValue}>

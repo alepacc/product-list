@@ -1,7 +1,7 @@
 import { useIsProductInCart } from '../hooks/useIsProductInCart';
 import ButtonCart from './ButtonCart';
 
-function ProductCard({ name, category, price, image }) {
+function ProductCard({ name, category, price, image, product}) {
   let categoryId = category.toLowerCase().split(' ').join('-');
   
   const isInCart = useIsProductInCart(categoryId);
@@ -14,7 +14,7 @@ function ProductCard({ name, category, price, image }) {
         className={`product-card__image ${isInCart ? "active" : ""}`} 
         />
           
-        <ButtonCart productName={categoryId} />
+        <ButtonCart productName={categoryId} product={product} />
       </div>
       
       <p className="product-card__category">{category}</p>
