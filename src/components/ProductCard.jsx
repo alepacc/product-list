@@ -9,10 +9,20 @@ function ProductCard({ name, category, price, image, product}) {
   return (
     <div className="product-card" id={categoryId} key={categoryId}>
       <div className="product-card__header">
-        <img src={image} 
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={image.desktop} />
+          <source media="(min-width: 768px)" srcSet={image.tablet} />
+          <source media="(min-width: 375px)" srcSet={image.mobile} />
+          <img 
+            src={image.mobile} 
+            alt={name} 
+            className={`product-card__image ${isInCart ? "active" : ""}`} 
+          />
+        </picture>
+        {/* <img src={image} 
         alt={name} 
         className={`product-card__image ${isInCart ? "active" : ""}`} 
-        />
+        /> */}
           
         <ButtonCart productName={categoryId} product={product} />
       </div>

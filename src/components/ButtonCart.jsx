@@ -7,8 +7,6 @@ function ButtonCart({ productName, product}) {
     const quantity = (listCart || []).find(item => item.category === productName)?.quantity || 0;
     return (
         <>     
-        {/* TODO: button quantity 
-        TODO: add border img*/}
         { 
           quantity === 0 ? (
           <button className="product-card__btn" onClick={() => incrementCounter(product)}>

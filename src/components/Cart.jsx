@@ -60,10 +60,10 @@ function Cart() {
                         <p className="item__details">
                         <span className="item__quantity-number">
                             {item.quantity}x
-                        </span>{" "}
-                        @ ${item.price}
+                        </span>
+                        @ ${(item.price).toFixed(2)}
                         <span className="item__total-price">
-                            ${item.quantity * item.price}
+                            ${(item.quantity * item.price).toFixed(2)}
                         </span>
                         </p>
                     </section>
@@ -83,9 +83,13 @@ function Cart() {
           )}
         </div>
         <div className="cart__footer">
-          <p className="cart__total">
-            Order Total <span className="cart__total-price">${totalPrice}</span>
-          </p>
+          <span className="cart__total">
+            Order Total <h2 className="cart__total-price">${totalPrice}</h2>
+          </span>
+          <section className="cart__info">
+            <img src="./assets/images/icon-carbon-neutral.svg" alt="carbon neutral" />
+            <p>This is a <b>carbon-neutral</b> delivery</p>
+          </section>
           <button className="cart__order" onClick={() => alert("Order confirmed!")}>
             Confirm Order
           </button>

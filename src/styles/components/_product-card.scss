@@ -1,8 +1,6 @@
 @use "../abstracts/variables.scss" as v;
 @use "../abstracts/mixins" as m;
 
-
-
 .product-card {
   padding: 1rem 0;
   display: flex;
@@ -24,14 +22,14 @@
   }
 
   &__category {
-    color: var(--rose-300);
+    color: var(--rose-500);
     font-size: 15px;
   }
 
-  &__name {
-    font-size: 16px;
-    font-weight: 700;
-  }
+  // &__name {
+  //   font-size: 16px;
+  //   font-weight: 700;
+  // }
 
   &__price {
     color: var(--red);

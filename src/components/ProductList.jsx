@@ -9,23 +9,6 @@ function ProductList() {
 
   const {setListCart} = useCart();
 
-  // useEffect(() => { // wrap logic with useEffect
-  //   setListCart(() => products.map((item, index) => ({
-  //     id: index, 
-  //     name: item.name,
-  //     category: item.category.toLowerCase().split(" ").join("-"), 
-  //     price: item.price,
-  //     image: item.image,
-  //     quantity: 0
-  //   })));
-  // }, [products, setListCart]); // add dependencies
-
-      // image: {
-        //     thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
-        //     mobile: "./assets/images/image-waffle-mobile.jpg",
-        //     tablet: "./assets/images/image-waffle-tablet.jpg",
-        //     desktop: "./assets/images/image-waffle-desktop.jpg"
-        // },
   return (
     <div className="product-list">
       {products.map((item, index) => (
@@ -35,7 +18,10 @@ function ProductList() {
           name={item.name} 
           category={item.category} 
           price={item.price.toFixed(2)}
-          image={item.image.mobile} 
+          image={{thumbnail: item.image.thumbnail, 
+            mobile: item.image.mobile, 
+            tablet: item.image.tablet, 
+            desktop: item.image.desktop}} 
         />  
       ))}
     </div>
