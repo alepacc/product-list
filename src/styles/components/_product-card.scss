@@ -26,10 +26,7 @@
     font-size: 15px;
   }
 
-  // &__name {
-  //   font-size: 16px;
-  //   font-weight: 700;
-  // }
+
 
   &__price {
     color: var(--red);
@@ -43,7 +40,7 @@
     margin-top: -20px;
     padding: 0.6rem 1.6rem;
     background: white;
-    border: 1px solid var(--rose-900);
+    border: 1px solid var(--rose-300);
     border-radius: 50px;
     width: fit-content;
     cursor: pointer;

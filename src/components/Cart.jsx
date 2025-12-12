@@ -31,20 +31,20 @@ function Cart() {
   if (items === 0) {
     return (
       <div className="cart">
-        <h2>
+        <h2 className="cart__title"> 
           Your Cart (0)
         </h2>
         <img
           src="./assets/images/illustration-empty-cart.svg"
           alt="empty cart"
         ></img>
-        <h3>Your added items will appears here</h3>
+        <h3 className="info">Your added items will appears here</h3>
       </div>
     );
   } else {
     return (
       <div className="cart">
-        <h2>
+        <h2 className="cart__title"> 
           Your Cart ({items})
         </h2>
         {/* Cart items will be displayed here */}
