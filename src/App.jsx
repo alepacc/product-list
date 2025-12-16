@@ -1,11 +1,9 @@
-import { useState } from 'react'
-
-// import './App.css'
 import ProductList from './components/ProductList'
 import Cart from './components/Cart'
+import Order from './components/Order.jsx';
+import ProductCard from './components/ProductCard.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

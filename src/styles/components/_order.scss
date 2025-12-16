@@ -1,0 +1,97 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.overlay {
+  position: fixed;
+  inset: 0; // top right bottom left = 0
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.order {
+  position: fixed;
+  // top: 25%;
+  bottom: 0;
+  background: var(--rose-50);
+  color: inherit;
+  padding: 20px;
+  // border-radius: 12px;
+  z-index: 2;
+  box-shadow: v.$shadow;
+  width: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 80%;
+  border-radius: 12px 12px 0 0;
+  justify-content: space-evenly;
+
+  &__details {
+    background-color: var(--rose-100);
+    border-radius: v.$radius;
+    width: 100%;
+    padding: 20px;
+    display: inline-grid;
+    gap: 15px;
+
+    hr {
+      background-color: lightgrey;
+    }
+  }
+
+  .order__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    gap: 10px;
+    // TODO: color
+    &-quantity-number {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    &-details {
+      color: var(--rose-400);
+      font-weight: 400;
+    }
+
+    img {
+      height: 50px;
+      border-radius: 5px;
+    }
+  }
+
+  .btn-new-order {
+    @include m.red-btn;
+    width: 100%;
+  }
+
+  &-total-price {
+    display: inline-flex;
+    align-content: space-around;
+  }
+
+  article {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .middle {
+    align-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .order {
+    inset: 0;
+    margin: auto;
+    width: max-content;
+    border-radius: 12px;
+    height: fit-content;
+    gap: 15px;
+    padding: 40px;
+  }
+}

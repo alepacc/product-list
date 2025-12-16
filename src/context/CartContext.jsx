@@ -6,27 +6,27 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [listCart, setListCart] = useState([]);
 
-  const incrementCounter = (product) => { // productName is the categoryId
-    const productName = product.category.toLowerCase().split(" ").join("-");
+  const incrementCounter = (product) => { 
+    const productCategory = product.category.toLowerCase().split(" ").join("-");
 
     setListCart((prevListCart) => {
-      const itemExists = prevListCart.find(item => item.category === productName);
+      const itemExists = prevListCart.find(item => item.category === productCategory);
       if (itemExists){
         return prevListCart.map((item) => {
-          return item.category === productName
-            ? { ...item, category: productName, name: product.name, price: product.price, quantity: item.quantity + 1  }
+          return item.category === productCategory
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         });
       }
-      return [...prevListCart, {category: productName, name: product.name, price: product.price, quantity: 1}];
+      return [...prevListCart, {category: productCategory, name: product.name, price: product.price, image: product.image, quantity: 1}];
     });
   };
 
   const decrementCounter = (product) => {
-    const productName = product.category.toLowerCase().split(" ").join("-");
+    const productCategory = product.category.toLowerCase().split(" ").join("-");
     setListCart((prevListCart) => {
       return prevListCart.map((item) => 
-        item.category === productName
+        item.category === productCategory
           ? { ...item, quantity: item.quantity - 1 }
           : item
       ).filter(item => item.quantity > 0);
@@ -34,9 +34,9 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItem = (product) => {
-    const productName = product.category.toLowerCase().split(" ").join("-");
+    const productCategory = product.category.toLowerCase().split(" ").join("-");
     setListCart((prevListCart) => {
-      return prevListCart.filter(item => item.category !== productName);
+      return prevListCart.filter(item => item.category !== productCategory);
     });
   };
 

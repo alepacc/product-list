@@ -19,10 +19,6 @@ function ProductCard({ name, category, price, image, product}) {
             className={`product-card__image ${isInCart ? "active" : ""}`} 
           />
         </picture>
-        {/* <img src={image} 
-        alt={name} 
-        className={`product-card__image ${isInCart ? "active" : ""}`} 
-        /> */}
           
         <ButtonCart productName={categoryId} product={product} />
       </div>

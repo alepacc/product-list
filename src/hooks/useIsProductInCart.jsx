@@ -1,6 +1,6 @@
 import { useCart } from "../context/CartContext";
 
-export const useIsProductInCart = (productName) => {
+export const useIsProductInCart = (productCategory) => {
   const { listCart } = useCart();
-  return listCart.some(item => item.category === productName && item.quantity > 0);
+  return listCart.some(item => item.category === productCategory && item.quantity > 0);
 };
