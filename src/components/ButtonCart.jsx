@@ -1,6 +1,4 @@
-import { useState } from "react";   
 import { useCart } from "../context/CartContext";
-
 
 function ButtonCart({ productName, product}) {
     const {listCart, incrementCounter, decrementCounter} = useCart();
@@ -9,7 +7,7 @@ function ButtonCart({ productName, product}) {
         <>     
         { 
           quantity === 0 ? (
-          <button className="product-card__btn" onClick={() => incrementCounter(product)}>
+          <button className="product-card__btn" type="button" onClick={() => incrementCounter(product)}>
             <img src="./assets/images/icon-add-to-cart.svg" alt="Add to cart icon" />
             Add to cart
           </button>

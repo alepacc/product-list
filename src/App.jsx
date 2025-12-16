@@ -1,7 +1,5 @@
 import ProductList from './components/ProductList'
 import Cart from './components/Cart'
-import Order from './components/Order.jsx';
-import ProductCard from './components/ProductCard.jsx';
 
 function App() {
 

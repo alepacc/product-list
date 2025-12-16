@@ -2,7 +2,7 @@ import { useIsProductInCart } from '../hooks/useIsProductInCart';
 import ButtonCart from './ButtonCart';
 
 function ProductCard({ name, category, price, image, product}) {
-  let categoryId = category.toLowerCase().split(' ').join('-');
+  const categoryId = category.toLowerCase().split(' ').join('-');
   
   const isInCart = useIsProductInCart(categoryId);
 
