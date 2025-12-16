@@ -4,7 +4,8 @@ function Data() {
   const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("./src/data/data.json") 
+        // fetch("./src/data/data.json") 
+        fetch(`${import.meta.env.BASE_URL}data.json`)
         .then(response => response.json())
         .then(data => setData(data));
     }, []);
