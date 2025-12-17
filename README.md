@@ -71,8 +71,9 @@ The production build is served from the dist/ folder.
 
 ## Screenshot solution
 
-Desktop empty page![desktop](./assets/images/alepacc.github.io_product-list_.png)
-
-Desktop selected items![desktop-selected](./assets/images/alepacc.github.io_product-list_1.png)
-Mobile order confirmation modal
+### Desktop empty page
+![desktop](./assets/images/alepacc.github.io_product-list_.png)
+### Desktop selected items
+![desktop-selected](./assets/images/alepacc.github.io_product-list_1.png)
+### Mobile order confirmation 
 ![mobile-order-confirmation](./assets/images/alepacc.github.io_product-list_2.png)
