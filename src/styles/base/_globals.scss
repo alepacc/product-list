@@ -65,8 +65,8 @@ button.product-card__btn:hover {
 button.cart__order:hover {
     filter: brightness(0.8);
 }
+
 button.btn-counter:hover {
-  // invert color red <--> white
   background-color: white;
   color: var(--red);
   border: 1px solid black;
